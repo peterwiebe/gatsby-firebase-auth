@@ -3,5 +3,11 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+import React from "react"
+import { AuthContext } from "./src/services/firebase"
 
-// You can delete this file if you're not using it
+const wrapRoootElement = ({ element }) => (
+  <AuthContext.Provider>{element}</AuthContext.Provider>
+)
+
+export { wrapRoootElement }
