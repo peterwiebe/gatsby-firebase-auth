@@ -7,11 +7,14 @@ import config from "./config"
 
 class Firebase {
   private auth: any
-  private user: any
 
   constructor() {
     firebase.initializeApp(config)
     this.auth = firebase.auth
+  }
+
+  get user() {
+    return this.auth().currentUser
   }
 
   createUser({ email, password }: userAuthParams) {
@@ -26,10 +29,7 @@ class Firebase {
   loginUser({ email, password }: userAuthParams) {
     return this.auth()
       .signInWithEmailAndPassword(email, password)
-      .then((res: any) => {
-        this.user = this.auth().currentUser
-        return res
-      })
+      .then((res: any) => res)
       .catch((err: errorResponse) => {
         throw err
       })
@@ -38,10 +38,7 @@ class Firebase {
   logoutUser() {
     return this.auth()
       .signOut()
-      .then((res: any) => {
-        this.user = null
-        return res
-      })
+      .then((res: any) => res)
       .catch((err: errorResponse) => {
         throw err
       })

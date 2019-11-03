@@ -10,4 +10,4 @@ _Utilizes:_
 1. Create a project in Firebase.
 2. Rename example.env.developemt file to .env.development.
 3. Copy your firebase project configuration settings to the .env.development file.
-4. In your preferred shell (Terminal) run `npm start`
+4. In your preferred shell (Terminal) run `npm start` and go to localhost:8000 in a new browser tab.

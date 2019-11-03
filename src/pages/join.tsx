@@ -1,5 +1,4 @@
 import React, { useCallback, useContext, useState } from "react"
-import { Link } from "gatsby"
 import { AuthContext } from "../services/firebase"
 
 import Layout from "../components/layout"
@@ -10,18 +9,18 @@ const intialFormState = {
   password: "",
 }
 
-const Login = () => {
+const Join = () => {
   const auth = useContext(AuthContext)
   const [isLoading, setIsLoading] = useState(false)
   const [{ email, password }, setCredentials] = useState(intialFormState)
   const [errorMessage, setErrorMessage] = useState()
 
-  const login = () => {
+  const join = () => {
     setIsLoading(true)
     setErrorMessage("")
 
     auth
-      .loginUser({ email, password })
+      .createUser({ email, password })
       .then((res: Promise<any>) => {
         console.log(res)
         setIsLoading(false)
@@ -39,8 +38,8 @@ const Login = () => {
 
   return (
     <Layout>
-      <SEO title="Login" />
-      <h1>Login</h1>
+      <SEO title="Join" />
+      <h1>Join</h1>
       <div
         style={{
           display: "grid",
@@ -56,15 +55,12 @@ const Login = () => {
           value={password}
           onChange={change}
         />
-        <button onClick={login}>Login</button>
+        <button onClick={join}>Register</button>
         {isLoading && `...Loading`}
         {errorMessage && <p>{errorMessage}</p>}
-        <p>
-          Create an account: <Link to="/join">Register</Link>
-        </p>
       </div>
     </Layout>
   )
 }
 
-export default Login
+export default Join

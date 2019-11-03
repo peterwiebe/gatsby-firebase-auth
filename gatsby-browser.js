@@ -6,6 +6,7 @@
 import React from "react"
 import { AuthContext } from "./src/services/firebase"
 
+// TODO: fix typo on ROOOOT
 const wrapRoootElement = ({ element }) => (
   <AuthContext.Provider>{element}</AuthContext.Provider>
 )
