@@ -58,8 +58,8 @@ class Firebase {
   }
 }
 
-const service = new Firebase()
+export const service = new Firebase()
 
-export const AuthContext = createContext(service)
+export const AuthContext = createContext(null)
 
 export default service

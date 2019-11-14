@@ -4,11 +4,8 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 import React from "react"
-import { AuthContext } from "./src/services/firebase"
+import { AuthContext, service } from "./src/services/firebase"
 
-// TODO: fix typo on ROOOOT
-const wrapRoootElement = ({ element }) => (
-  <AuthContext.Provider>{element}</AuthContext.Provider>
+export const wrapRootElement = ({ element }) => (
+  <AuthContext.Provider value={service}>{element}</AuthContext.Provider>
 )
-
-export { wrapRoootElement }
